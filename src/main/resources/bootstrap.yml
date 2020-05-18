@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: learn-cloud
+  cloud:
+    nacos:
+      config:
+        file-extension: yaml
+  profiles:
+    active: dev
+---
+#开发环境配置
+spring:
+  profiles: dev
+  cloud:
+    nacos:
+      discovery:
+        enabled: true
+        server-addr: nacos.dev.common.com:80
+        namespace: 959bac05-ffc8-4334-8143-77aacd06446a
+      config:
+        server-addr: nacos.dev.common.com:80
+        namespace: 959bac05-ffc8-4334-8143-77aacd06446a
+---
+spring:
+  profiles: ${PROFILE}
+  cloud:
+    nacos:
+      config:
+        server-addr: ${DISCOVERY_SVC}
+        namespace: ${NAMESPACE_ID}
+        group: ${GROUP}
