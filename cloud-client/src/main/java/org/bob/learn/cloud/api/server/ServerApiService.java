@@ -6,6 +6,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @FeignClient(name = "cloud-server",fallbackFactory = ServerApiServiceFallbackFactory.class)
 public interface ServerApiService {
-    @GetMapping("/server/test")
+    @GetMapping("/learn/server/test")
     Result test();
 }
